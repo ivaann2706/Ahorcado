@@ -1,0 +1,31 @@
+.btLetrasEstilo{
+	width: 28px;
+	margin-top: 20px;
+
+}
+
+.win{
+	background-color: green;
+}
+
+.lost{
+	background-color: red;
+}
+
+.letrasAcertadas{
+	font-size: 50px;
+
+
+}
+
+.ponerDerecha{
+	margin-left: 50px;
+}
+
+#divBotones{
+	float:right;
+	width:300px;
+	margin-left: 100px;
+	
+	
+}

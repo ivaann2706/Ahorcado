@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html data-ng-app="miApp" data-ng-controller="miController as vm" >
+<head>
+	<!-- Cabecera -->
+	<title>Juego Ahorcado</title>
+	<meta charset="utf-8"/>
+	
+	<!-- Librerias Externas (jQuery, Bootstrap y los nuestros) -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+
+	<link rel="stylesheet" type="text/css" href="estilos.css"/>
+	<!-- Angular -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.js"></script>
+	<!-- Mi codigo js -->
+	<script type="text/javascript" src="codigo.js"></script>
+
+</head>
+<body ng-class="vm.body" >
+	
+<div class="panel panel-default" class="panel-responsive" >
+ 	<div class="panel-heading">
+  		<h1>Juego del Ahorcado</h1>
+ 	</div>
+  
+
+ 	<div class="panel-body" style="float:left">
+	 	<img src="{{vm.image}}" >
+		
+	 	<span class="ponerDerecha" ng-hide="vm.txtResultado">
+			<span ng-repeat="letra in vm.palabraAdivinar track by $index">
+				<span class="letrasAcertadas">{{letra}}</span>
+			</span>
+			
+		</span>
+
+
+		<span ng-show="vm.resultadoFinal">
+			<h1 ng-show="vm.winLost">Has ganado</h1>
+			<h1 ng-hide="vm.winLost">Has perdido</h1>
+			<h1>La palabra era {{vm.palabra}}</h1>
+		</span>
+		
+		<span ng-show="vm.inputPalabra" >
+			<input class="ponerDerecha" type="password"  ng-model="vm.palabra" placeholder="Introduce palabra" />
+			<button ng-click="vm.introducirPalabra(vm.palabra) ;"><span class="glyphicon glyphicon-ok"></span></button>
+			
+		</span>
+		
+		<span id="divBotones" ng-hide="vm.btLetras"  >
+			<input ng-init="vm.visibleA=true" ng-show="vm.visibleA" type="button" ng-click="vm.pulsarLetra('A')" class="btLetrasEstilo" value="A"/>
+			<input ng-init="vm.visibleB=true" ng-show="vm.visibleB" type="button" ng-click="vm.pulsarLetra('B')" class="btLetrasEstilo" value="B"/>
+			<input ng-init="vm.visibleC=true" ng-show="vm.visibleC" type="button" ng-click="vm.pulsarLetra('C')" class="btLetrasEstilo" value="C"/>
+			<input ng-init="vm.visibleD=true" ng-show="vm.visibleD" type="button" ng-click="vm.pulsarLetra('D')" class="btLetrasEstilo" value="D"/>
+			<input ng-init="vm.visibleE=true" ng-show="vm.visibleE" type="button" ng-click="vm.pulsarLetra('E')" class="btLetrasEstilo" value="E"/>
+			<input ng-init="vm.visibleF=true" ng-show="vm.visibleF" type="button" ng-click="vm.pulsarLetra('F')" class="btLetrasEstilo" value="F"/>
+			<input ng-init="vm.visibleG=true" ng-show="vm.visibleG" type="button" ng-click="vm.pulsarLetra('G')" class="btLetrasEstilo" value="G"/>
+			<input ng-init="vm.visibleH=true" ng-show="vm.visibleH" type="button" ng-click="vm.pulsarLetra('H')" class="btLetrasEstilo" value="H"/>
+			<input ng-init="vm.visibleI=true" ng-show="vm.visibleI" type="button" ng-click="vm.pulsarLetra('I')" class="btLetrasEstilo" value="I"/>
+			<input ng-init="vm.visibleJ=true" ng-show="vm.visibleJ" type="button" ng-click="vm.pulsarLetra('J')" class="btLetrasEstilo" value="J"/>
+			<input ng-init="vm.visibleK=true" ng-show="vm.visibleK" type="button" ng-click="vm.pulsarLetra('K')" class="btLetrasEstilo" value="K"/>
+			<input ng-init="vm.visibleL=true" ng-show="vm.visibleL" type="button" ng-click="vm.pulsarLetra('L')" class="btLetrasEstilo" value="L"/>
+			<input ng-init="vm.visibleM=true" ng-show="vm.visibleM" type="button" ng-click="vm.pulsarLetra('M')" class="btLetrasEstilo" value="M"/>
+			<input ng-init="vm.visibleN=true" ng-show="vm.visibleN" type="button" ng-click="vm.pulsarLetra('N')" class="btLetrasEstilo" value="N"/>
+			<input ng-init="vm.visibleNN=true" ng-show="vm.visibleNN" type="button" ng-click="vm.pulsarLetra('Ñ')" class="btLetrasEstilo" value="Ñ"/>
+			<input ng-init="vm.visibleO=true" ng-show="vm.visibleO" type="button" ng-click="vm.pulsarLetra('O')" class="btLetrasEstilo" value="O"/>
+			<input ng-init="vm.visibleP=true" ng-show="vm.visibleP" type="button" ng-click="vm.pulsarLetra('P')" class="btLetrasEstilo" value="P"/>
+			<input ng-init="vm.visibleQ=true" ng-show="vm.visibleQ" type="button" ng-click="vm.pulsarLetra('Q')" class="btLetrasEstilo" value="Q"/>
+			<input ng-init="vm.visibleR=true" ng-show="vm.visibleR" type="button" ng-click="vm.pulsarLetra('R')" class="btLetrasEstilo" value="R"/>
+			<input ng-init="vm.visibleS=true" ng-show="vm.visibleS" type="button" ng-click="vm.pulsarLetra('S')" class="btLetrasEstilo" value="S"/>
+			<input ng-init="vm.visibleT=true" ng-show="vm.visibleT" type="button" ng-click="vm.pulsarLetra('T')" class="btLetrasEstilo" value="T"/>
+			<input ng-init="vm.visibleU=true" ng-show="vm.visibleU" type="button" ng-click="vm.pulsarLetra('U')" class="btLetrasEstilo" value="U"/>
+			<input ng-init="vm.visibleV=true" ng-show="vm.visibleV" type="button" ng-click="vm.pulsarLetra('V')" class="btLetrasEstilo" value="V"/>
+			<input ng-init="vm.visibleW=true" ng-show="vm.visibleW" type="button" ng-click="vm.pulsarLetra('W')" class="btLetrasEstilo" value="W"/>
+			<input ng-init="vm.visibleX=true" ng-show="vm.visibleX" type="button" ng-click="vm.pulsarLetra('X')" class="btLetrasEstilo" value="X"/>
+			<input ng-init="vm.visibleY=true" ng-show="vm.visibleY" type="button" ng-click="vm.pulsarLetra('Y')" class="btLetrasEstilo" value="Y"/>
+			<input ng-init="vm.visibleZ=true" ng-show="vm.visibleZ" type="button" ng-click="vm.pulsarLetra('Z')" class="btLetrasEstilo" value="Z"/>
+		</span>
+
+		
+		
+		<p ng-hide="vm.btReiniciar" ><button ng-click="vm.reiniciar()">Jugar otra vez</button></p>
+
+
+	 </div>
+</div>
+
+
+	
+
+	
+
+	
+</body>
+</html>
